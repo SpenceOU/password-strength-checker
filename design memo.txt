@@ -1,0 +1,24 @@
+# DESIGN MEMO
+#
+# 1. Why is a tree appropriate for the doctor structure?
+# A hospital's reporting structure is a hierarchy, with one lead at the top
+# and doctors reporting beneath them. A binary tree models that directly,
+# because each doctor is a node and each report is a child. Unlike a flat
+# list or dictionary, the shape of the tree shows who reports to whom, and a
+# recursive insert can walk down only the branches it needs.
+#
+# 2. When might a software engineer use preorder, inorder, or postorder?
+# Preorder visits a parent before its children, so it is useful for copying
+# or saving a tree, or for printing a report where managers appear above
+# their teams. Inorder visits the left side, then the node, then the right
+# side, which gives sorted output when the tree is a binary search tree.
+# Postorder visits children before their parent, so it fits deleting a tree
+# or totaling values from the bottom up before handling the parent.
+#
+# 3. How do heaps help simulate real-time systems like emergency intake?
+# An emergency room serves patients by urgency, not arrival time. A min-heap
+# always keeps the most urgent patient at the root, so peek() is O(1) and
+# insert() and remove_min() are O(log n) because the heapify methods only
+# move a patient along one path of the tree. That means the queue stays
+# correct as patients arrive and are treated, without re-sorting the whole
+# list each time.
