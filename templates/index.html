@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Password Strength Checker</h1>
+        <p class="subtitle">See how strong your password is and how fast it could be cracked.</p>
+        <input type="password" id="passwordInput" placeholder="Type a password...">
+        <div class="strength-bar-container">
+            <div class="strength-bar" id="strengthBar"></div>
+        </div>
+        <div class="strength-label" id="strengthLabel"></div>
+        <div class="crack-time hidden" id="crackTimeBox">
+            Estimated time to crack: <strong id="crackTime"></strong>
+        </div>
+        <ul class="feedback-list" id="feedbackList"></ul>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
